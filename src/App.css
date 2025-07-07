@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+h1 {
+  color: #333;
+  font-family: Poppins;
+}
+
+input, textarea, button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+}
+
+.feedback-form {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.feedback-list {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.feedback-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}

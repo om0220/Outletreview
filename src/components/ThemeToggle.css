@@ -1,0 +1,22 @@
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 14px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #5e60ce, #00bcd4);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  width:10px;
+}
+
+.theme-toggle:hover {
+  background: linear-gradient(90deg, #4c4ecf, #00a5c2);
+  transform: scale(1.05);
+}
