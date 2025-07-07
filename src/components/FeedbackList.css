@@ -1,8 +1,9 @@
 .feedback-list {
-  max-width: 900px;
+  max-width: 9000px;
   margin: 40px auto;
   padding: 20px;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
+
 }
 
 .feedback-list h2 {
