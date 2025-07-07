@@ -94,7 +94,7 @@
 
   .feedback-form input,
   .feedback-form textarea {
-    max-width: 100%;
+    max-width: 50%;
   }
 
   .feedback-form button {
