@@ -12,42 +12,46 @@ const FeedbackForm = ({ onAdd }) => {
     lng: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "rating") {
-      const num = parseInt(value);
-      if (num < 1 || num > 5) return;
-    }
-
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
   const handleLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        pos => {
-          setForm(prev => ({
+        (position) => {
+          setForm((prev) => ({
             ...prev,
-            lat: pos.coords.latitude.toFixed(6),
-            lng: pos.coords.longitude.toFixed(6),
+            lat: position.coords.latitude.toFixed(6),
+            lng: position.coords.longitude.toFixed(6),
           }));
         },
-        err => {
-          alert("Location access denied or unavailable.");
+        (error) => {
+          alert("⚠️ Unable to access location. Please allow location access.");
         }
       );
     } else {
-      alert("Geolocation is not supported by your browser.");
+      alert("❌ Geolocation is not supported by your browser.");
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, city, outlet, lat, lng } = form;
+    const { name, city, outlet, rating, message, lat, lng } = form;
 
-    if (name && city && outlet && lat && lng) {
-      onAdd({ ...form, lat: parseFloat(lat), lng: parseFloat(lng) });
+    if (name && city && outlet && lat && lng && rating >= 1 && rating <= 5) {
+      onAdd({
+        name,
+        city,
+        outlet,
+        rating: parseInt(rating),
+        message,
+        lat: parseFloat(lat),
+        lng: parseFloat(lng),
+      });
+
+      // Reset form
       setForm({
         name: "",
         city: "",
@@ -57,6 +61,8 @@ const FeedbackForm = ({ onAdd }) => {
         lat: "",
         lng: "",
       });
+    } else {
+      alert("⚠️ Please fill all fields correctly.");
     }
   };
 
@@ -64,16 +70,62 @@ const FeedbackForm = ({ onAdd }) => {
     <form onSubmit={handleSubmit} className="feedback-form">
       <h2>📝 Submit Your Food Feedback</h2>
 
-      <input name="name" value={form.name} onChange={handleChange} placeholder="👤 Your Name" required />
-      <input name="city" value={form.city} onChange={handleChange} placeholder="🌆 City" required />
-      <input name="outlet" value={form.outlet} onChange={handleChange} placeholder="🏪 Outlet Name" required />
-      <input name="rating" type="number" min="1" max="5" value={form.rating} onChange={handleChange} placeholder="⭐ Rating (1-5)" />
-      <textarea name="message" value={form.message} onChange={handleChange} placeholder="💬 Your feedback..." />
+      <input
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+        placeholder="👤 Your Name"
+        required
+      />
+      <input
+        name="city"
+        value={form.city}
+        onChange={handleChange}
+        placeholder="🌆 City"
+        required
+      />
+      <input
+        name="outlet"
+        value={form.outlet}
+        onChange={handleChange}
+        placeholder="🏪 Outlet Name"
+        required
+      />
+      <input
+        name="rating"
+        type="number"
+        min="1"
+        max="5"
+        required
+        value={form.rating}
+        onChange={handleChange}
+        placeholder="⭐ Rating (1-5)"
+      />
+      <textarea
+        name="message"
+        value={form.message}
+        onChange={handleChange}
+        placeholder="💬 Your feedback..."
+      />
 
       <div className="location-section">
-        <input name="lat" value={form.lat} onChange={handleChange} placeholder="📍 Latitude" required />
-        <input name="lng" value={form.lng} onChange={handleChange} placeholder="📍 Longitude" required />
-        <button type="button" className="use-location" onClick={handleLocation}>📌 Use My Location</button>
+        <input
+          name="lat"
+          value={form.lat}
+          onChange={handleChange}
+          placeholder="📍 Latitude"
+          required
+        />
+        <input
+          name="lng"
+          value={form.lng}
+          onChange={handleChange}
+          placeholder="📍 Longitude"
+          required
+        />
+        <button type="button" className="use-location" onClick={handleLocation}>
+          📌 Use My Location
+        </button>
       </div>
 
       <button type="submit">✅ Submit Feedback</button>
