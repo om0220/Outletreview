@@ -12,7 +12,7 @@ function App() {
   const [cityFilter, setCityFilter] = useState("");
 
   const addFeedback = (feedback) => {
-    setFeedbacks([...feedbacks, { ...feedback, id: Date.now() }]);
+    setFeedbacks(prev => [...prev, { ...feedback, id: Date.now() }]);
   };
 
   const filteredFeedbacks = cityFilter
@@ -20,16 +20,24 @@ function App() {
     : feedbacks;
 
   return (
-    <div className="App">
-      <h1>🍽️ Food Outlet Feedback App</h1>
-      {/* <div className="theme-toggle-wrapper">
-    <ThemeToggle />
-  </div> */}
-      <SearchBar onSearch={setCityFilter} />
-      <MapView feedbacks={filteredFeedbacks} />
-      <FeedbackForm onAdd={addFeedback} />
-      <FeedbackList feedbacks={filteredFeedbacks} />
+    <div className="app-container">
+      {/* Theme Toggle Button */}
+      <ThemeToggle />
 
+      {/* App Title */}
+      <h1 className="app-title">🍽️ Food Outlet Feedback App</h1>
+
+      {/* Search Input */}
+      <SearchBar onSearch={setCityFilter} />
+
+      {/* Map showing locations */}
+      <MapView feedbacks={filteredFeedbacks} />
+
+      {/* Feedback submission form */}
+      <FeedbackForm onAdd={addFeedback} />
+
+      {/* Feedback card list */}
+      <FeedbackList feedbacks={filteredFeedbacks} />
     </div>
   );
 }

@@ -8,8 +8,6 @@ const FeedbackForm = ({ onAdd }) => {
     outlet: "",
     rating: "",
     message: "",
-    lat: "",
-    lng: "",
   });
 
   const handleChange = (e) => {
@@ -21,11 +19,8 @@ const FeedbackForm = ({ onAdd }) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setForm((prev) => ({
-            ...prev,
-            lat: position.coords.latitude.toFixed(6),
-            lng: position.coords.longitude.toFixed(6),
-          }));
+          alert("📍 Location fetched successfully, but coordinates are not used.");
+          // In future, use position.coords.latitude & longitude if needed
         },
         (error) => {
           alert("⚠️ Unable to access location. Please allow location access.");
@@ -38,29 +33,24 @@ const FeedbackForm = ({ onAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, city, outlet, rating, message, lat, lng } = form;
+    const { name, city, outlet, rating, message } = form;
 
-    if (name && city && outlet && lat && lng && rating >= 1 && rating <= 5) {
+    if (name && city && outlet && rating >= 1 && rating <= 5) {
       onAdd({
-        name,
-        city,
-        outlet,
+        ...form,
         rating: parseInt(rating),
-        message,
-        lat: parseFloat(lat),
-        lng: parseFloat(lng),
+        id: Date.now()
       });
 
-      // Reset form
       setForm({
         name: "",
         city: "",
         outlet: "",
         rating: "",
         message: "",
-        lat: "",
-        lng: "",
       });
+
+      alert("✅ Feedback submitted successfully!");
     } else {
       alert("⚠️ Please fill all fields correctly.");
     }
@@ -109,20 +99,6 @@ const FeedbackForm = ({ onAdd }) => {
       />
 
       <div className="location-section">
-        <input
-          name="lat"
-          value={form.lat}
-          onChange={handleChange}
-          placeholder="📍 Latitude"
-          required
-        />
-        <input
-          name="lng"
-          value={form.lng}
-          onChange={handleChange}
-          placeholder="📍 Longitude"
-          required
-        />
         <button type="button" className="use-location" onClick={handleLocation}>
           📌 Use My Location
         </button>

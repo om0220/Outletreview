@@ -1,18 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import './ThemeToggle.css';
+import React, { useEffect, useState } from "react";
+import "./ThemeToggle.css";
 
 const ThemeToggle = () => {
-  const [dark, setDark] = useState(() => localStorage.getItem("theme") === "dark");
+  const [darkMode, setDarkMode] = useState(() =>
+    localStorage.getItem("theme") === "dark"
+  );
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", dark ? "dark" : "light");
-    localStorage.setItem("theme", dark ? "dark" : "light");
-  }, [dark]);
+    document.body.classList.toggle("dark-theme", darkMode);
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode((prev) => !prev);
+  };
 
   return (
-    <button className="theme-toggle" onClick={() => setDark(!dark)}>
-      {dark ? "🌞" : "🌙"}
-    </button>
+    <div className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
+      <img
+        src={darkMode ? "public/theme.jpg" : "public/dark.png"}
+        alt="Toggle Theme"
+        className="theme-icon"
+      />
+    </div>
   );
 };
 

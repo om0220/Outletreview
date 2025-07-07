@@ -3,49 +3,76 @@ body {
   padding: 0;
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
-  background: #f5cf9593;
+  background: var(--bg);
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
   overflow-x: hidden;
+  transition: background 0.3s ease;
 }
 
+/* Theme Variables */
+:root,
+body[data-theme="light"] {
+  --bg: #f5cf9593;
+  --card-bg: #fffaf3;
+  --card-border: #f8d39d;
+  --text: #333;
+  --heading-gradient: linear-gradient(to right, #d78511, #fca833);
+  --map-border: #e0eafc;
+}
+
+body[data-theme="dark"] {
+  --bg: #1a1b2f;
+  --card-bg: #26283b;
+  --card-border: #3c3e57;
+  --text: #f1f1f1;
+  --heading-gradient: linear-gradient(to right, #fca833, #ffe57f);
+  --map-border: #3c3e57;
+}
+
+/* Wrapper */
 .map-wrapper {
-  max-width: 900px;
+  max-width: 1000px;
   width: 100%;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 0 20px 30px;
   text-align: center;
-  background: #fffaf3;
+  background: var(--card-bg);
   border-radius: 16px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  border: 2px solid #f8d39d;
-  transition: box-shadow 0.3s ease;
-  width: 5000px;
+  border: 2px solid var(--card-border);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .map-wrapper:hover {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* Heading */
 .map-heading {
   font-size: 28px;
   margin: 25px 0;
   font-weight: 700;
-  background: linear-gradient(to right, #d78511, #fca833);
+  background: var(--heading-gradient);
   /* -webkit-background-clip: text; */
   -webkit-text-fill-color: white;
 }
 
+/* Map box */
 .map-container {
   height: 300px;
   width: 100%;
   border-radius: 14px;
-  border: 2px solid #e0eafc;
+  border: 2px solid var(--map-border);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
+  background-color: #fff;
+}
+
+body[data-theme="dark"] .map-container {
+  background-color: #1e1f33;
 }
 
 .map-container:hover {
@@ -53,6 +80,7 @@ body {
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .map-container {
     height: 250px;
