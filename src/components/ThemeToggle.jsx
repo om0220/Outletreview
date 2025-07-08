@@ -18,7 +18,7 @@ const ThemeToggle = () => {
   return (
     <div className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
       <img
-        src={darkMode ? "public/theme.jpg" : "public/dark.png"}
+        src={darkMode ? "/theme.jpg" : "/dark.png"}
         alt="Toggle Theme"
         className="theme-icon"
       />
