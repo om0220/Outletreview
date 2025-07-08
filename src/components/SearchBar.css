@@ -1,17 +1,23 @@
 /* Base styles */
 .search-bar {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 50%;
+  max-width: 400px;
+  margin: 20px auto -20px;
+  margin-left: 700px;
 }
 
 .search-input {
-  width: 100%;
-  padding: 12px 42px 12px 14px; /* Right padding for ✖ icon space */
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
   font-size: 16px;
   border: 2px solid #ccddee;
-  border-radius: 12px;
+  border-radius: 25px;
   outline: none;
   transition: 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -19,22 +25,35 @@
 }
 
 .search-input:focus {
-  border-color: #e98c3b;
+  border-color: #fcbf4e;
   box-shadow: 0 0 0 3px rgba(233, 140, 59, 0.15);
 }
 
+.search-btn {
+  padding: 11px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  background-color: #fca833;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #e89c24;
+}
+
 .clear-btn {
-  position: absolute;
-  top: 50%;
-  right: -70px;
-  transform: translateY(-50%);
+  font-size: 18px;
+  border-radius: 25px;
+  
   background: none;
   border: none;
-  font-size: 18px;
-  color: #999;
   cursor: pointer;
+  color: #999;
   transition: color 0.3s ease;
-
+  margin-left: -160px;
 }
 
 .clear-btn:hover {
@@ -50,25 +69,27 @@
   .search-input {
     font-size: 15px;
   }
+
+  .search-btn {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
 }
 
 @media (max-width: 480px) {
   .search-input {
-    padding: 10px 36px 10px 12px;
     font-size: 14px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: center;
   }
 
-  
-.clear-btn {
-  position: absolute;
-  top: 50%;
-  right: -70px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #999;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
+  .search-btn {
+    font-size: 14px;
+    padding: 9px 14px;
+  }
+
+  .clear-btn {
+    font-size: 16px;
+  }
 }

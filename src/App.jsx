@@ -9,34 +9,46 @@ import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(feedbackData);
-  const [cityFilter, setCityFilter] = useState("");
+  const [cityFilter, setCityFilter] = useState('');
+  const [foodType, setFoodType] = useState('all'); // 'veg' | 'nonveg' | 'all'
 
   const addFeedback = (feedback) => {
-    setFeedbacks(prev => [...prev, { ...feedback, id: Date.now() }]);
+    setFeedbacks((prev) => [...prev, { ...feedback, id: Date.now() }]);
   };
 
-  const filteredFeedbacks = cityFilter
-    ? feedbacks.filter(f => f.city.toLowerCase().includes(cityFilter.toLowerCase()))
-    : feedbacks;
+  const handleSearch = (city) => {
+    setCityFilter(city);
+    setTimeout(() => {
+      document.getElementById('feedbackSection')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  const filteredFeedbacks = feedbacks.filter((f) =>
+    f.city.toLowerCase().includes(cityFilter.toLowerCase()) &&
+    (foodType === 'all' || f.type === foodType)
+  );
 
   return (
     <div className="app-container">
-      {/* Theme Toggle Button */}
+      {/* Theme Toggle */}
       <ThemeToggle />
 
-      {/* App Title */}
+      {/* Title */}
       <h1 className="app-title">🍽️ Food Outlet Feedback App</h1>
 
-      {/* Search Input */}
-      <SearchBar onSearch={setCityFilter} />
+      {/* Search Bar */}
+      <SearchBar onSearch={handleSearch} />
 
-      {/* Map showing locations */}
+      {/* Food Type Toggle */}
+     
+
+      {/* Map View */}
       <MapView feedbacks={filteredFeedbacks} />
 
-      {/* Feedback submission form */}
+      {/* Feedback Form */}
       <FeedbackForm onAdd={addFeedback} />
 
-      {/* Feedback card list */}
+      {/* Feedback List */}
       <FeedbackList feedbacks={filteredFeedbacks} />
     </div>
   );

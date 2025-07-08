@@ -4,8 +4,9 @@ import './FeedbackList.css';
 const FeedbackList = ({ feedbacks }) => {
   const [showAll, setShowAll] = useState(false);
   const [expanded, setExpanded] = useState({});
-  const [cityFilter, setCityFilter] = useState('');
   const [ratingFilter, setRatingFilter] = useState('');
+  const [localCityFilter, setLocalCityFilter] = useState('');
+  const [foodType, setFoodType] = useState('veg'); // 'veg' | 'nonveg' | 'all'
 
   const toggleExpand = (id) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -14,8 +15,9 @@ const FeedbackList = ({ feedbacks }) => {
   const visibleCount = 3;
 
   const filteredFeedbacks = feedbacks.filter((f) =>
-    (cityFilter ? f.city === cityFilter : true) &&
-    (ratingFilter ? f.rating === parseInt(ratingFilter) : true)
+    (localCityFilter ? f.city === localCityFilter : true) &&
+    (ratingFilter ? f.rating === parseInt(ratingFilter) : true) &&
+    (foodType === 'all' || f.type === foodType)
   );
 
   const visibleFeedbacks = showAll
@@ -23,27 +25,47 @@ const FeedbackList = ({ feedbacks }) => {
     : filteredFeedbacks.slice(0, visibleCount);
 
   return (
-    <div className="feedback-list">
+    <div className="feedback-list" id="feedbackSection">
       <h2>📝 Customer Food Reviews</h2>
 
+      {/* Filters */}
       <div className="filters">
-        <select onChange={(e) => setCityFilter(e.target.value)} value={cityFilter}>
+        {/* City Filter */}
+        <select onChange={(e) => setLocalCityFilter(e.target.value)} value={localCityFilter}>
           <option value="">🌆 All Cities</option>
           {[...new Set(feedbacks.map((f) => f.city))].map((city) => (
             <option key={city} value={city}>{city}</option>
           ))}
         </select>
 
+        {/* Rating Filter */}
         <select onChange={(e) => setRatingFilter(e.target.value)} value={ratingFilter}>
           <option value="">⭐ All Ratings</option>
           {[5, 4, 3, 2, 1].map((r) => (
             <option key={r} value={r}>{r} Stars</option>
           ))}
         </select>
+
+        {/* Veg / Non-Veg Toggle */}
+        <div className="filter-toggle">
+          <label className="pure-switch">
+            <input
+              type="checkbox"
+              checked={foodType === "nonveg"}
+              onChange={() =>
+                setFoodType((prev) => (prev === "nonveg" ? "veg" : "nonveg"))
+              }
+            />
+            <span className="slider" />
+          </label>
+          <span>{foodType === "nonveg" ? "🍗 Non-Veg" : "🥗 Veg"}</span>
+        </div>
       </div>
 
+      {/* No Results */}
       {filteredFeedbacks.length === 0 && <p>No feedback available</p>}
 
+      {/* Feedback Cards */}
       {visibleFeedbacks.map((f) => (
         <div key={f.id} className="feedback-card">
           {/* Rating Row */}
@@ -55,12 +77,17 @@ const FeedbackList = ({ feedbacks }) => {
             <span className="rating-text">• {f.title || 'Delicious Food'}</span>
           </div>
 
-          {/* Food Outlet Info */}
+          {/* Outlet Info */}
           <div className="product-info">
             Feedback for: <span className="dim-text">{f.outlet}</span>
           </div>
 
-          {/* Message */}
+          {/* Food Type */}
+          <div className="food-type-label">
+            {f.type === 'veg' ? '🟢 Veg' : '🔴 Non-Veg'}
+          </div>
+
+          {/* Expandable Message */}
           <div className="message">
             {!expanded[f.id] ? (
               <p onClick={() => toggleExpand(f.id)} className="expand-message">
@@ -75,12 +102,12 @@ const FeedbackList = ({ feedbacks }) => {
             )}
           </div>
 
-          {/* Reviewer */}
+          {/* Reviewer Info */}
           <div className="user-meta">
             <p><strong>{f.name}</strong>, {f.city}</p>
           </div>
 
-          {/* Action Buttons */}
+          {/* Feedback Buttons */}
           <div className="feedback-actions">
             <button className="helpful-btn">👍 Helpful</button>
             <button className="not-helpful-btn">👎</button>
@@ -91,6 +118,7 @@ const FeedbackList = ({ feedbacks }) => {
         </div>
       ))}
 
+      {/* Toggle More/Less */}
       {filteredFeedbacks.length > visibleCount && (
         <button className="toggle-btn" onClick={() => setShowAll(!showAll)}>
           {showAll ? "🔼 Show Less" : "🔽 Show More"}

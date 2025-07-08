@@ -3,12 +3,13 @@ body {
   padding: 0;
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
+  background: ghostwhite;
   display: flex;
-  align-items: center;
+  
   flex-direction: column;
   overflow-x: hidden;
   transition: background 0.3s ease;
+
 }
 
 /* Theme Variables */
@@ -31,44 +32,33 @@ body[data-theme="dark"] {
   --map-border: #3c3e57;
 }
 
-/* Wrapper */
-.map-wrapper {
-  max-width: 1000px;
-  width: 100%;
-  margin: 40px auto;
-  padding: 0 20px 30px;
-  text-align: center;
-  background: var(--card-bg);
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  border: 2px solid var(--card-border);
-  transition: box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.map-wrapper:hover {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-}
 
 /* Heading */
 .map-heading {
   font-size: 28px;
   margin: 25px 0;
   font-weight: 700;
-  background: var(--heading-gradient);
-  /* -webkit-background-clip: text; */
-  -webkit-text-fill-color: white;
+  color: black;
+ 
+
 }
 
 /* Map box */
 .map-container {
-  height: 300px;
-  width: 100%;
-  border-radius: 14px;
+  height: 1000px;
+  width: 50%;
+  border-radius: 5px;
   border: 2px solid var(--map-border);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #ffffff;
+
+  margin-left: -160px;
+  margin-bottom: -860px;
+  margin-top: -195px;
+  /* padding-left: -3000px; */
+  
 }
 
 body[data-theme="dark"] .map-container {
@@ -78,15 +68,5 @@ body[data-theme="dark"] .map-container {
 .map-container:hover {
   transform: scale(1.01);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
-}
 
-/* Responsive */
-@media (max-width: 768px) {
-  .map-container {
-    height: 250px;
-  }
-
-  .map-heading {
-    font-size: 22px;
-  }
 }

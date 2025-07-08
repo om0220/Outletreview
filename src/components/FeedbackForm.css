@@ -1,25 +1,29 @@
 /* Base Light Theme */
 .feedback-form {
-  background: linear-gradient(135deg, #fffdf5, #fff2e6);
+  background:white;
   padding: 40px;
   border-radius: 18px;
   max-width: 1000px;
   margin: 40px auto;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   font-family: 'Segoe UI', sans-serif;
-  border: 2px solid #fcd59f;
+  border: 2px solid #ffffff;
   text-align: center;
-  width: 1000px;
+  width: 500px;
   transition: all 0.3s ease-in-out;
+  margin-left: 600px;
+  justify-content: end;
+  margin-top: -350px;
+  padding-top: -140px;
 }
 
 .feedback-form h2 {
   margin-bottom: 30px;
   font-size: 28px;
   font-weight: 700;
-  background: linear-gradient(90deg, #ff9800, #ff5722);
+  /* background: linear-gradient(90deg, #eaba1c, #FFD700); */
   /* -webkit-background-clip: text; */
-  -webkit-text-fill-color: white;
+  /* -webkit-text-fill-color: white; */
 }
 
 .feedback-form input,
@@ -28,7 +32,7 @@
   font-size: 16px;
   border-radius: 12px;
   border: 2px solid #ffe3b3;
-  background-color: #fffaf3;
+  background-color: #ffffff;
   color: #222;
   transition: 0.3s ease;
   width: 100%;
@@ -53,12 +57,12 @@
 .feedback-form button {
   margin-top: 30px;
   padding: 14px 28px;
-  background: linear-gradient(90deg, #ff8f00, #ff6f00);
+  background: #ffc65c;
   border: none;
   color: #fff;
   font-size: 17px;
   font-weight: bold;
-  border-radius: 12px;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
@@ -100,7 +104,7 @@ body.dark-theme .feedback-form {
 }
 
 body.dark-theme .feedback-form h2 {
-  background: linear-gradient(90deg, #fbc02d, #ff9800);
+
   /* -webkit-background-clip: text; */
   -webkit-text-fill-color: white;
 }
@@ -125,12 +129,12 @@ body.dark-theme .feedback-form textarea:focus {
 }
 
 body.dark-theme .feedback-form button {
-  background: linear-gradient(90deg, #ff8f00, #ffb300);
+  background: #fca833;
   box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
 }
 
 body.dark-theme .feedback-form button:hover {
-  background: linear-gradient(90deg, #ffb300, #ffc107);
+  background: #e88b09;
 }
 
 body.dark-theme .use-location {
@@ -141,7 +145,7 @@ body.dark-theme .use-location:hover {
   background: #2e7d32;
 }
 
-/* 📱 Responsive */
+/* 📱 Responsive
 @media (max-width: 768px) {
   .feedback-form {
     padding: 24px;
@@ -162,4 +166,4 @@ body.dark-theme .use-location:hover {
     width: 100%;
     max-width: 90%;
   }
-}
+} */

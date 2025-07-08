@@ -1,9 +1,11 @@
 .feedback-list {
-  max-width: 1000px;
+  max-width: 500px;
   margin: 40px auto;
   padding: 24px;
   font-family: 'Poppins';
   transition: all 0.3s ease-in-out;
+  width: 50%;
+  margin-left: 600px;
 }
 
 .feedback-list h2 {
@@ -11,14 +13,12 @@
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 30px;
-  background: linear-gradient(90deg, #e9e62d, #e0d510);
-  /* -webkit-background-clip: text; */
-  -webkit-text-fill-color: white;
+  color: black;
 }
 
 /* Card Styling */
 .feedback-card {
-  background-color: var(--card-bg);
+  background-color: #FAF9F6;
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 22px 26px;
@@ -63,12 +63,20 @@
 /* Product Info */
 .product-info {
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: var(--text-muted);
 }
 
 .dim-text {
   color: var(--text-light);
+}
+
+/* Veg / Non-Veg Label */
+.food-type-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
 }
 
 /* Feedback Message */
@@ -81,7 +89,7 @@
 
 .read-more,
 .read-less {
-  color: #5e60ce;
+  color: #FDCB6E;
   font-weight: bold;
   margin-left: 6px;
   font-size: 14px;
@@ -138,6 +146,7 @@
   margin-bottom: 30px;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .filters select {
@@ -152,8 +161,62 @@
 }
 
 .filters select:focus {
-  border-color: #5e60ce;
+  border-color: #fcbf4e;
   outline: none;
+}
+
+/* Veg / Non-Veg Switch */
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pure-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.pure-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pure-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  transition: 0.3s;
+  border-radius: 28px;
+}
+
+.pure-switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.pure-switch input:checked + .slider {
+  background-color: #ff9800;
+}
+
+.pure-switch input:checked + .slider::before {
+  transform: translateX(22px);
 }
 
 /* Toggle Button */
@@ -163,7 +226,7 @@
   padding: 12px 22px;
   font-size: 15px;
   font-weight: bold;
-  background: linear-gradient(90deg, #5e60ce, #00bcd4);
+  background: #fcbf4e;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -172,7 +235,7 @@
 }
 
 .toggle-btn:hover {
-  background: linear-gradient(90deg, #4b50cc, #00acc1);
+  background: #fcbf4e;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
@@ -199,17 +262,84 @@ body[data-theme="dark"] {
 }
 
 /* Responsive */
+/* Existing styles... unchanged above this line */
+
 @media (max-width: 768px) {
+  .feedback-list {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+  }
+
   .filters {
     flex-direction: column;
-    align-items: center;
+    gap: 12px;
+  }
+
+  .feedback-card {
+    padding: 18px;
   }
 
   .feedback-actions {
     justify-content: center;
   }
 
-  .feedback-card {
-    padding: 18px;
+  .toggle-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .filters select {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .filter-toggle {
+    justify-content: center;
   }
 }
+body.dark-theme h2{
+  color: white;
+}
+/* @media (max-width: 480px) {
+  .feedback-list h2 {
+    font-size: 22px;
+  }
+
+  .rating-row {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .feedback-card {
+    padding: 14px;
+  }
+
+  .read-more,
+  .read-less {
+    font-size: 13px;
+  }
+
+  .feedback-actions button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .toggle-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .filters select {
+    font-size: 13px;
+  }
+
+  .food-type-label {
+    font-size: 13px;
+  }
+
+  .user-meta {
+    font-size: 14px;
+  }
+} */
