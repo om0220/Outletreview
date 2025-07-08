@@ -6,8 +6,6 @@
   background: transparent;
   cursor: pointer;
   z-index: 1000;
-  padding: 8px;
-  border-radius: 50%;
   transition: background 0.3s ease;
 }
 
@@ -39,17 +37,30 @@ body.dark-theme {
   background-color: #121212;
   color: #f0f0f0;
 }
-
-/* Responsive */
-/* @media (max-width: 480px) {
+/* ================================
+   Responsive Media Queries
+================================ */
+@media (max-width: 768px) {
   .theme-toggle {
-    top: 14px;
-    right: 14px;
-    padding: 6px;
+    top: 12px;
+    right: 12px;
+    padding: 4px;
   }
 
   .theme-icon {
     width: 28px;
     height: 28px;
   }
-} */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .theme-toggle {
+    top: 16px;
+    right: 16px;
+  }
+
+  .theme-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -145,25 +145,18 @@ body.dark-theme .use-location:hover {
   background: #2e7d32;
 }
 
-/* 📱 Responsive
 @media (max-width: 768px) {
   .feedback-form {
-    padding: 24px;
+    /* padding: 20px; */
+    width: 100%;
+    margin-left:400px;
+    max-width: 500px;
+    margin-top: 20px;
   }
 
   .feedback-form input,
-  .feedback-form textarea {
-    max-width: 90%;
-  }
-
-  .location-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .feedback-form button,
-  .use-location {
+  .feedback-form button {
     width: 100%;
-    max-width: 90%;
+    font-size: 16px;
   }
-} */
+}

@@ -80,8 +80,8 @@
   .search-input {
     font-size: 14px;
     padding: 10px 14px;
-    display: flex;
-    justify-content: center;
+  margin-left: -400px;
+  max-width: 200px;
   }
 
   .search-btn {

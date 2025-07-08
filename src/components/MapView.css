@@ -38,9 +38,7 @@ body[data-theme="dark"] {
   font-size: 28px;
   margin: 25px 0;
   font-weight: 700;
-  color: black;
- 
-
+  color: white;
 }
 
 /* Map box */
@@ -69,4 +67,41 @@ body[data-theme="dark"] .map-container {
   transform: scale(1.01);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
 
+}
+@media (max-width: 768px) {
+
+  
+  .map-container {
+    width: 100%;
+    margin-left:340px;
+    max-width: 1000px;
+    margin-top: 50px;
+    margin-bottom: 0;
+    margin-top: 20px;
+    height: 400px;
+  }
+
+  .map-heading {
+    font-size: 22px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Tablet Screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .map-container {
+    width: 80%;
+    height: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+
+  .map-heading {
+    font-size: 24px;
+  }
 }

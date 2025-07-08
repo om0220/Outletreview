@@ -1,4 +1,6 @@
-/* App-wide layout */
+/* --------------------
+   Desktop (Default)
+---------------------*/
 .App {
   width: 100%;
   min-height: 100vh;
@@ -7,14 +9,12 @@
   transition: background-color 0.3s ease;
 }
 
-/* Center content in all sections */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Optional: Adjust heading */
 .app-title {
   text-align: center;
   margin-top: 20px;
@@ -22,8 +22,9 @@
   font-family: 'Poppins', sans-serif;
   color: var(--accent-color);
   width: 50%;
-  margin-left:600px;
+  margin-left: 600px; /* desktop-specific */
 }
+
 .split-screen {
   display: flex;
   flex-direction: row;
@@ -46,99 +47,59 @@
   flex-direction: column;
   gap: 20px;
 }
-
-/* Responsive for smaller devices */
+/* --------------------
+   Mobile Screens
+---------------------*/
 @media (max-width: 768px) {
   .app-title {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 32px;
-  font-family: 'Poppins', sans-serif;
-  color: var(--accent-color);
-  width: 100%;
-  margin-left:500px;
-}
-  .App {
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease;
-}
+ width: 100%;
+    margin-left:450px;
+    max-width: 500px;
+    margin-top: 20px;
+  }
 
   .split-screen {
     flex-direction: column;
+    padding: 10px;
+    gap: 16px;
   }
 
   .map-section,
   .content-section {
-    min-width: 100%;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .container {
+    padding: 0 12px;
   }
 }
-/* Filter Toggle Section */
-/* .filter-toggle { */
-  /* position: fixed; */
-  /* top: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 12px; */
-  
-  /* border: 2px solid var(--card-border, #f8d39d); */
-  /* border-radius: 30px;
-  font-size: 14px;
-  font-weight: 500;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding-left: 0px;
-  width: 50%;
-  margin-left:1100px;
-  max-width: 150px;
-} */
 
-/* Pure Switch Style */
-/* .pure-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 28px;
+/* --------------------
+   Tablet Screens
+---------------------*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app-title {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .split-screen {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .map-section,
+  .content-section {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
 }
 
-.pure-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.pure-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: gray;
-  transition: 0.3s;
-  border-radius: 28px;
-}
-
-.pure-switch .slider::before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.3s;
-  border-radius: 50%;
-}
-
-.pure-switch input:checked + .slider {
-  background-color: #ff9800;
-}
-
-.pure-switch input:checked + .slider::before {
-  transform: translateX(22px);
-} */

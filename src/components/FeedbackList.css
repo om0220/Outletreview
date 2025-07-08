@@ -302,44 +302,131 @@ body[data-theme="dark"] {
 body.dark-theme h2{
   color: white;
 }
-/* @media (max-width: 480px) {
-  .feedback-list h2 {
-    font-size: 22px;
+
+/* =======================
+   Responsive Media Queries
+======================= */
+@media (max-width: 768px) {
+  .feedback-list {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
   }
 
-  .rating-row {
-    flex-wrap: wrap;
-    gap: 4px;
+  .feedback-list h2 {
+    font-size: 24px;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .feedback-card {
-    padding: 14px;
+    padding: 18px;
   }
 
-  .read-more,
-  .read-less {
-    font-size: 13px;
-  }
-
-  .feedback-actions button {
-    width: 100%;
-    text-align: center;
+  .feedback-actions {
+    justify-content: center;
   }
 
   .toggle-btn {
-    padding: 10px;
+    width: 100%;
     font-size: 14px;
   }
 
   .filters select {
-    font-size: 13px;
-  }
-
-  .food-type-label {
-    font-size: 13px;
-  }
-
-  .user-meta {
+    width: 100%;
     font-size: 14px;
   }
-} */
+
+  .filter-toggle {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .feedback-list {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feedback-card {
+    padding: 20px;
+  }
+
+  .filters {
+    gap: 12px;
+  }
+}
+
+/* Dark theme heading adjustment */
+body.dark-theme h2 {
+  color: white;
+}
+
+/* ============================
+   Responsive Media Queries
+============================ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .feedback-list {
+    width: 100%;
+    margin-left:450px;
+    max-width: 500px;
+    margin-top: 20px;
+  }
+
+  .feedback-list h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .feedback-card {
+    padding: 18px;
+  }
+
+  .feedback-actions {
+    justify-content: center;
+  }
+
+  .toggle-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .filters select {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .filter-toggle {
+    justify-content: center;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .feedback-list {
+    width: 100%;
+    margin: 0 auto; /* Center horizontally */
+  }
+
+  .feedback-card {
+    padding: 20px;
+  }
+
+  .filters {
+    gap: 12px;
+    justify-content: center;
+  }
+}
