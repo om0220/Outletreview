@@ -1,6 +1,9 @@
 /* Theme Toggle Button */
 .theme-toggle {
   position: fixed;
+  /* margin-left: 1400px;
+  margin-bottom: -60px;
+  margin-top: 20px; */
   top: 20px;
   right: 20px;
   background: transparent;
@@ -42,9 +45,13 @@ body.dark-theme {
 ================================ */
 @media (max-width: 768px) {
   .theme-toggle {
+    margin-left: 1400px;
+  margin-bottom: -60px;
+  margin-top: 0px;
     top: 12px;
     right: 12px;
     padding: 4px;
+    margin-right: 10px;
   }
 
   .theme-icon {
@@ -57,10 +64,28 @@ body.dark-theme {
   .theme-toggle {
     top: 16px;
     right: 16px;
+  
   }
 
   .theme-icon {
     width: 30px;
     height: 30px;
+     margin-left: -70px;
+  }
+}
+
+@media (max-width: 440px) {
+  .theme-toggle {
+   
+    top: 12px;
+    right: 12px;
+    padding: 4px;
+    
+  }
+
+  .theme-icon {
+    width: 28px;
+    height: 28px;
+     margin-left: -200px;
   }
 }

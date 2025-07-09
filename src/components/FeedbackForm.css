@@ -145,18 +145,60 @@ body.dark-theme .use-location:hover {
   background: #2e7d32;
 }
 
+
+@media (max-width: 440px){
+  .feedback-form {
+    width: 100%;
+max-width: 200px;
+margin-left: 100px;
+
+justify-content: center;
+}
+}
 @media (max-width: 768px) {
   .feedback-form {
-    /* padding: 20px; */
     width: 100%;
-    margin-left:400px;
-    max-width: 500px;
+    margin-left: 100px;
+    max-width: 380px;
     margin-top: 20px;
+   
+   /* background-color: transparent; */
   }
 
   .feedback-form input,
   .feedback-form button {
     width: 100%;
-    font-size: 16px;
+    font-size: 7px;
+  }
+  .feedback-form h2 {
+  margin-bottom: 30px;
+  font-size: 60px;
+  font-weight: 700;
   }
 }
+
+@media (max-width: 1024px) {
+  .feedback-form {
+    border: none;
+    margin: 20px auto;
+    max-width: 400px;
+    /* padding: 20px; */
+    margin-left: 90px;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .feedback-form input,
+  .feedback-form button {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .feedback-form h2 {
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+

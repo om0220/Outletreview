@@ -51,12 +51,23 @@
    Mobile Screens
 ---------------------*/
 @media (max-width: 768px) {
+  .App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
   .app-title {
- width: 100%;
-    margin-left:450px;
-    max-width: 500px;
-    margin-top: 20px;
-  }
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: var(--accent-color);
+  width: auto;
+  margin-left: 20px; /* desktop-specific */
+}
 
   .split-screen {
     flex-direction: column;
@@ -81,7 +92,7 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .app-title {
     width: 80%;
-    margin: 0 auto;
+   margin-left: 110px;
     font-size: 28px;
     text-align: center;
   }
@@ -103,3 +114,27 @@
   }
 }
 
+@media (max-widh:480px){
+.app-title {
+    width: 100%;
+   margin-left: 10px;
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .split-screen {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .map-section,
+  .content-section {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}

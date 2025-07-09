@@ -260,173 +260,93 @@ body[data-theme="dark"] {
   --btn-bg: #2a2a3d;
   --select-bg: #2e2e42;
 }
-
-/* Responsive */
-/* Existing styles... unchanged above this line */
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .feedback-list {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 16px;
+    width: 95%;
+    padding: 20px;
+    margin-left: 60px;
   }
 
   .filters {
     flex-direction: column;
-    gap: 12px;
-  }
-
-  .feedback-card {
-    padding: 18px;
-  }
-
-  .feedback-actions {
-    justify-content: center;
-  }
-
-  .toggle-btn {
-    width: 100%;
-    font-size: 14px;
+    gap: 16px;
+    align-items: stretch;
   }
 
   .filters select {
     width: 100%;
-    font-size: 14px;
-  }
-
-  .filter-toggle {
-    justify-content: center;
-  }
-}
-body.dark-theme h2{
-  color: white;
-}
-
-/* =======================
-   Responsive Media Queries
-======================= */
-@media (max-width: 768px) {
-  .feedback-list {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 16px;
-  }
-
-  .feedback-list h2 {
-    font-size: 24px;
-  }
-
-  .filters {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .feedback-card {
-    padding: 18px;
-  }
-
-  .feedback-actions {
-    justify-content: center;
-  }
-
-  .toggle-btn {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .filters select {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .filter-toggle {
-    justify-content: center;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .feedback-list {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 15px;
   }
 
   .feedback-card {
     padding: 20px;
   }
 
-  .filters {
-    gap: 12px;
+  .feedback-actions {
+    justify-content: center;
+  }
+
+  .toggle-btn {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .filter-toggle {
+    justify-content: center;
   }
 }
 
-/* Dark theme heading adjustment */
+/* ✅ Tablet / Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .feedback-list {
+    width: 92%;
+    padding: 18px;
+    margin-left: 30px;
+  }
+
+  .feedback-card {
+    padding: 18px;
+  }
+
+  .filters select,
+  .toggle-btn {
+    font-size: 14px;
+  }
+
+  .filters {
+    gap: 12px;
+  }
+
+  .feedback-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* ✅ Small Phones (max-width: 480px) */
+@media (max-width: 440px) {
+  .feedback-list {
+    
+    border: none;
+    margin-left:100px;
+    max-width: 280px;
+    margin-top: 20px;
+    align-items: center;
+   background-color: transparent;
+  }
+
+  .filters select,
+  .toggle-btn {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .feedback-card {
+    padding: 16px;
+  }
+}
+
+/* 🌙 Dark Theme Header */
 body.dark-theme h2 {
   color: white;
-}
-
-/* ============================
-   Responsive Media Queries
-============================ */
-
-/* Mobile */
-@media (max-width: 768px) {
-  .feedback-list {
-    width: 100%;
-    margin-left:450px;
-    max-width: 500px;
-    margin-top: 20px;
-  }
-
-  .feedback-list h2 {
-    font-size: 24px;
-    text-align: center;
-  }
-
-  .filters {
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-
-  .feedback-card {
-    padding: 18px;
-  }
-
-  .feedback-actions {
-    justify-content: center;
-  }
-
-  .toggle-btn {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .filters select {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .filter-toggle {
-    justify-content: center;
-  }
-}
-
-/* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .feedback-list {
-    width: 100%;
-    margin: 0 auto; /* Center horizontally */
-  }
-
-  .feedback-card {
-    padding: 20px;
-  }
-
-  .filters {
-    gap: 12px;
-    justify-content: center;
-  }
 }
