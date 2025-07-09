@@ -10,6 +10,7 @@ const FeedbackForm = ({ onAdd }) => {
     message: "",
     lat: "",
     lng: "",
+    type: "", // ✅ Renamed from variety to type
   });
 
   const handleChange = (e) => {
@@ -27,7 +28,7 @@ const FeedbackForm = ({ onAdd }) => {
             lng: position.coords.longitude.toFixed(6),
           }));
         },
-        (error) => {
+        () => {
           alert("⚠️ Unable to access location. Please allow location access.");
         }
       );
@@ -38,10 +39,10 @@ const FeedbackForm = ({ onAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, city, outlet, rating, message, lat, lng } = form;
+    const { name, city, outlet, rating, message, lat, lng, type } = form;
 
-    if (name && city && outlet && lat && lng && rating >= 1 && rating <= 5) {
-      onAdd({
+    if (name && city && outlet && lat && lng && type && rating >= 1 && rating <= 5) {
+      const feedbackData = {
         name,
         city,
         outlet,
@@ -49,7 +50,11 @@ const FeedbackForm = ({ onAdd }) => {
         message,
         lat: parseFloat(lat),
         lng: parseFloat(lng),
-      });
+        type: type.toLowerCase(), // ✅ Normalize to 'veg' or 'nonveg'
+      };
+
+      console.log("📥 Feedback submitted:", feedbackData);
+      onAdd(feedbackData);
 
       // Reset form
       setForm({
@@ -60,6 +65,7 @@ const FeedbackForm = ({ onAdd }) => {
         message: "",
         lat: "",
         lng: "",
+        type: "",
       });
     } else {
       alert("⚠️ Please fill all fields correctly.");
@@ -107,6 +113,18 @@ const FeedbackForm = ({ onAdd }) => {
         onChange={handleChange}
         placeholder="💬 Your feedback..."
       />
+
+      {/* ✅ Veg / Non-Veg Dropdown */}
+      <select
+        name="type"
+        value={form.type}
+        onChange={handleChange}
+        required
+      >
+        <option value="">🍽️ Select Food Type</option>
+        <option value="veg">🥦 Veg</option>
+        <option value="nonveg">🍗 Non-Veg</option>
+      </select>
 
       <div className="location-section">
         <input
