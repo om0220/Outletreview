@@ -323,30 +323,24 @@ body[data-theme="dark"] {
   }
 }
 
-/* ✅ Small Phones (max-width: 480px) */
 @media (max-width: 440px) {
   .feedback-list {
-    
-    border: none;
-    margin-left:100px;
-    max-width: 280px;
-    margin-top: 20px;
-    align-items: center;
-   background-color: transparent;
-  }
-
-  .filters select,
-  .toggle-btn {
-    font-size: 13px;
-    padding: 8px;
+    padding: 10px;
+    width: 70%;
   }
 
   .feedback-card {
-    padding: 16px;
+    width: 100%;
+    margin-bottom: 12px;
+    font-size: 14px;
   }
-}
 
-/* 🌙 Dark Theme Header */
-body.dark-theme h2 {
-  color: white;
+  
+.feedback-list h2 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: black;
+}
 }

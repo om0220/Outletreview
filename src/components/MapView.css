@@ -130,7 +130,7 @@ body[data-theme="dark"] .map-container {
 @media (max-width: 480px){
 
    body {
-   
+   width: 150%;
      margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -144,19 +144,23 @@ body[data-theme="dark"] .map-container {
   } 
 .map-container {
     width: 80%;
-    height: 300px;
-   max-width: 600px;
+    height: 200px;
+   max-width: 1400px;
     border-radius: 10px;
-    margin-left: 114px;
+    margin-left: 40px;
     margin-bottom: 40px;
     margin-top: 30px;
   }
 .map-heading {
-    font-size: 22px;
+    font-size: 20px;
    margin-top: 40px;
-    display: flex;
-    margin-left: 50px;
+    /* display: flex; */
+    margin-left: 35px;
     padding-top: 10px;
+    
+  }
+  body.dark-theme .map-heading{
+    color: white;
   }
 
 
