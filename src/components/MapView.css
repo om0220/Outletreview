@@ -106,7 +106,7 @@ body[data-theme="dark"] .map-container {
 /* Tablet Screens */
 @media (min-width: 769px) and (max-width: 1024px) {
   .map-container {
-    width: 160%;
+    width: 150%;
     height: 400px;
    max-width: 1000px;
     border-radius: 10px;
@@ -128,7 +128,7 @@ body[data-theme="dark"] .map-container {
   
 }
 @media (max-width: 480px){
-
+/* 
    body {
    width: 150%;
      margin: 0;
@@ -141,7 +141,7 @@ body[data-theme="dark"] .map-container {
   overflow-x: hidden;
   transition: background 0.3s ease;
   
-  } 
+  }  */
 .map-container {
     width: 80%;
     height: 200px;
