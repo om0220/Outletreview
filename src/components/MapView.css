@@ -1,3 +1,4 @@
+/* Base Body Styles */
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ body {
   overflow-x: hidden;
   transition: background 0.3s ease;
 
+  
 }
 
 /* Theme Variables */
@@ -31,31 +33,27 @@ body[data-theme="dark"] {
   --map-border: #3c3e57;
 }
 
-
-/* Heading */
-.map-heading {
-  font-size: 28px;
-  margin: 25px 0;
-  font-weight: 700;
-  color: white;
+/* Horizontal layout for map + form */
+.horizontal-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh; /* Full screen height */
 }
 
-/* Map box */
+/* Map container shared style */
 .map-container {
-  height: 1000px;
+  flex: 2;
   width: 50%;
+  height: 790px;
   border-radius: 5px;
   border: 2px solid var(--map-border);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
   background-color: #ffffff;
-
-  margin-left: -160px;
-  margin-bottom: -860px;
-  margin-top: -195px;
-  /* padding-left: -3000px; */
-  
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 body[data-theme="dark"] .map-container {
@@ -65,103 +63,73 @@ body[data-theme="dark"] .map-container {
 .map-container:hover {
   transform: scale(1.01);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
-
 }
-@media (max-width: 768px) {
 
-  body {
-   
-     margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  background: ghostwhite;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  transition: background 0.3s ease;
-  max-width: -400px;
+/* Heading */
+.map-heading {
+  font-size: 28px;
+  margin: 25px 170px;
+  font-weight: 700;
+  
+}
 
-  }
+body[data-theme="light"] .map-heading {
+  color: black;
+}
+
+/* 🔁 Responsive Media Queries */
+
+/* Mobile - Max 480px */
+@media (max-width: 480px) {
   .map-container {
-    width: 100%;
-    margin-left:0px;
+    width: 70%;
+    height: 60px;
+    border-radius: 10px;
+ 
+  }
+  .map-heading {
+    font-size: 10px;
+    margin-left: 0px;
+    margin-top: 40px;
+    padding-top: 10px;
+  }
+}
+
+/* Tablet - Max 768px */
+@media (max-width: 768px) {
+  .horizontal-layout {
+    flex-direction: column;
+  }
+
+  .map-container {
+    width: 95%;
+    height: 350px;
     max-width: 800px;
-    margin-top: 50px;
-    margin-bottom: 0;
-    margin-top: 20px;
-    height: 300px;
+    margin: 20px auto;
   }
 
   .map-heading {
     font-size: 22px;
-   margin-top: 40px;
-    display: flex;
-    margin-left: 150px;
+    margin-left: 200px;
+    margin-top: 40px;
     padding-top: 10px;
-    color: black;
   }
 }
 
-/* Tablet Screens */
+/* Small Desktop - 769px to 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .map-container {
-    width: 150%;
+    width: 100%;
     height: 400px;
-   max-width: 1000px;
+    max-width: 1000px;
     border-radius: 10px;
-    margin-left: -170px;
-    margin-bottom: 40px;
-    margin-top: 30px;
+    margin: 30px auto 40px auto;
   }
-.map-heading {
+
+  .map-heading {
     font-size: 22px;
-   margin-top: 40px;
-    display: flex;
-    margin-left: 170px;
+    margin-left: 350px;
+    margin-top: 40px;
     padding-top: 10px;
   }
-
-  body.light-theme .map-heading{
-    color: black;
-  }
-  
-}
-@media (max-width: 480px){
-/* 
-   body {
-   width: 150%;
-     margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  background: ghostwhite;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  transition: background 0.3s ease;
-  
-  }  */
-.map-container {
-    width: 80%;
-    height: 200px;
-   max-width: 1400px;
-    border-radius: 10px;
-    margin-left: 40px;
-    margin-bottom: 40px;
-    margin-top: 30px;
-  }
-.map-heading {
-    font-size: 20px;
-   margin-top: 40px;
-    /* display: flex; */
-    margin-left: 35px;
-    padding-top: 10px;
-    
-  }
-  body.dark-theme .map-heading{
-    color: white;
-  }
-
-
 }

@@ -1,11 +1,11 @@
 .feedback-list {
-  max-width: 500px;
+  max-width: 1200px;
   margin: 40px auto;
   padding: 24px;
   font-family: 'Poppins';
   transition: all 0.3s ease-in-out;
-  width: 50%;
-  margin-left: 600px;
+  width: 100%;
+  margin-left: -15px;
 }
 
 .feedback-list h2 {
@@ -13,7 +13,7 @@
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 30px;
-  color: black;
+  
 }
 
 /* Card Styling */
@@ -262,21 +262,32 @@ body[data-theme="dark"] {
 }
 @media (max-width: 1024px) {
   .feedback-list {
-    width: 95%;
-    padding: 20px;
-    margin-left: 60px;
+    width: 90%;
+    height: 1200px;
+    max-width: 1000px;
+    border-radius: 10px;
+    margin: 50px auto 40px auto;
   }
+/* Filters */
+.filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
-  .filters {
-    flex-direction: column;
-    gap: 16px;
-    align-items: stretch;
-  }
-
-  .filters select {
-    width: 100%;
-    font-size: 15px;
-  }
+.filters select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 15px;
+  background: var(--select-bg);
+  color: var(--text-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
 
   .feedback-card {
     padding: 20px;
@@ -326,7 +337,7 @@ body[data-theme="dark"] {
 @media (max-width: 440px) {
   .feedback-list {
     padding: 10px;
-    width: 70%;
+    width: 75%;
   }
 
   .feedback-card {
@@ -335,6 +346,14 @@ body[data-theme="dark"] {
     font-size: 14px;
   }
 
+  .filters select,
+  .toggle-btn {
+    font-size: 6px;
+  }
+
+  .filters {
+    gap: 7px;
+  }
   
 .feedback-list h2 {
   text-align: center;
@@ -342,5 +361,8 @@ body[data-theme="dark"] {
   font-weight: 700;
   margin-bottom: 30px;
  
+}
+.feedback-list button{
+font-size: 10px;
 }
 }

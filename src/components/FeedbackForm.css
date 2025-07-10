@@ -1,29 +1,30 @@
-/* Base Light Theme */
+/* Shared styles for both sections */
 .feedback-form {
-  background:white;
-  padding: 40px;
-  border-radius: 18px;
-  max-width: 1000px;
-  margin: 40px auto;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  font-family: 'Segoe UI', sans-serif;
-  border: 2px solid #ffffff;
+  flex: 1;
+  width: 50%;
+  border-radius: 5px;
+  border: 2px solid var(--map-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 20px;
   text-align: center;
-  width: 500px;
-  transition: all 0.3s ease-in-out;
-  margin-left: 600px;
-  justify-content: end;
-  margin-top: -350px;
-  padding-top: -140px;
+margin-left: 50%;
+margin-right: 600px;
+margin-top: -790px;
+border-top: transparent;
+
+
 }
 
 .feedback-form h2 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  margin-top: 10px;
   font-size: 28px;
   font-weight: 700;
-  /* background: linear-gradient(90deg, #eaba1c, #FFD700); */
-  /* -webkit-background-clip: text; */
-  /* -webkit-text-fill-color: white; */
+  text-align: center;
 }
 
 .feedback-form input,
@@ -35,8 +36,8 @@
   background-color: #ffffff;
   color: #222;
   transition: 0.3s ease;
-  width: 100%;
-  max-width: 350px;
+  width: 50%;
+  max-width: 500px;
   margin: 12px auto;
   display: block;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset;
@@ -55,7 +56,7 @@
 }
 
 .feedback-form button {
-  margin-top: 30px;
+  margin: 30px auto 0;
   padding: 14px 28px;
   background: #ffc65c;
   border: none;
@@ -66,6 +67,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+ margin-left: 10px;
+
+width: 45%;
 }
 
 .feedback-form button:hover {
@@ -77,24 +81,89 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 0px;
+  margin-top: 10px;
 }
 
-.use-location {
-  background: #4caf50;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.star {
+  color: #ccc;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.use-location:hover {
-  background: #388e3c;
+.star.filled {
+  color: #ffc107;
 }
+
+.toggle-type-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.toggle-label {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pure-switch {
+  position: relative;
+  width: 50px;
+  height: 28px;
+}
+
+.pure-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pure-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: gray;
+  transition: 0.3s;
+  border-radius: 28px;
+}
+
+.pure-switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.pure-switch input:checked + .slider {
+  background-color: #ff9800;
+}
+
+.pure-switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+
+
+
+
+
+
 
 /* 🌙 Dark Theme */
 body.dark-theme .feedback-form {
@@ -104,8 +173,6 @@ body.dark-theme .feedback-form {
 }
 
 body.dark-theme .feedback-form h2 {
-
-  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: white;
 }
 
@@ -137,88 +204,78 @@ body.dark-theme .feedback-form button:hover {
   background: #e88b09;
 }
 
-body.dark-theme .use-location {
+/* body.dark-theme .use-location {
   background: #43a047;
 }
 
 body.dark-theme .use-location:hover {
   background: #2e7d32;
-}
+} */
 
+
+
+
+
+
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .feedback-form {
+    width: 90%;
+    height: 850px;
+    max-width: 1000px;
+    border-radius: 10px;
+    margin: 50px auto 40px auto;
+  }
+
+  
+.feedback-form button {
+  
+width: 45%;
+margin-left: 10px;
+}
+}
 
 @media (max-width: 768px) {
   .feedback-form {
-    width: 100%;
-    margin-left: 100px;
-    max-width: 380px;
-    margin-top: 20px;
-   
-   /* background-color: transparent; */
-  }
-
-  .feedback-form input,
-  .feedback-form button {
-    width: 100%;
-    font-size: 7px;
-  }
-  .feedback-form h2 {
-  margin-bottom: 30px;
-  font-size: 60px;
-  font-weight: 700;
-  }
-}
-
-@media (max-width: 1024px) {
-  .feedback-form {
-    border: none;
+    width: 95%;
     margin: 20px auto;
-    max-width: 400px;
-    /* padding: 20px; */
-    margin-left: 90px;
-    align-items: center;
-    background-color: transparent;
-  }
-
-  .feedback-form input,
-  .feedback-form button {
-    width: 90%;
-    font-size: 14px;
   }
 
   .feedback-form h2 {
-    margin-bottom: 24px;
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-  }
-}
-
-
-
-@media (max-width: 440px) {
-  .feedback-form {
-    width: 90%;
-    max-width: 280px;
-    margin: 20px auto;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 22px;
   }
 
   .feedback-form input,
   .feedback-form textarea,
   .feedback-form button {
-    width: 70%;
     font-size: 14px;
+   
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-form {
+    max-width: 85%;
+    padding: 16px;
+    height: auto;
   }
 
   .feedback-form h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 15px;
   }
 
+  .feedback-form input,
+  .feedback-form textarea {
+    font-size: 13px;
+  }
+.feedback-form button{
+  width: 40%;
+  font-size: 9px;
+  
+}
   .use-location {
     width: 100%;
-    font-size: 14px;
+    font-size: 13px;
   }
 }

@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import '../components/FeedbackForm.css';
+import { FaStar } from 'react-icons/fa'; // Star icon from react-icons
 
 const FeedbackForm = ({ onAdd }) => {
   const [form, setForm] = useState({
     name: "",
     city: "",
     outlet: "",
-    rating: "",
+    rating: 0,
     message: "",
     lat: "",
     lng: "",
-    type: "", // ✅ Renamed from variety to type
+    type: "",
   });
+
+  const [hover, setHover] = useState(null); // for star hover
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleLocation = () => {
@@ -28,47 +31,56 @@ const FeedbackForm = ({ onAdd }) => {
             lng: position.coords.longitude.toFixed(6),
           }));
         },
-        () => {
-          alert("⚠️ Unable to access location. Please allow location access.");
-        }
+        () => alert("⚠️ Please allow location access.")
       );
     } else {
-      alert("❌ Geolocation is not supported by your browser.");
+      alert("❌ Geolocation not supported.");
     }
+  };
+
+  const handleStarClick = (index) => {
+    setForm((prev) => ({ ...prev, rating: index + 1 }));
+  };
+
+  const handleToggleType = () => {
+    setForm((prev) => ({
+      ...prev,
+      type: prev.type === "veg" ? "nonveg" : "veg",
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, city, outlet, rating, message, lat, lng, type } = form;
 
-    if (name && city && outlet && lat && lng && type && rating >= 1 && rating <= 5) {
+    if (name && city && outlet && lat && lng && type && rating > 0) {
       const feedbackData = {
         name,
         city,
         outlet,
-        rating: parseInt(rating),
+        rating,
         message,
         lat: parseFloat(lat),
         lng: parseFloat(lng),
-        type: type.toLowerCase(), // ✅ Normalize to 'veg' or 'nonveg'
+        type,
       };
 
-      console.log("📥 Feedback submitted:", feedbackData);
-      onAdd(feedbackData);
+      console.log("📥 Feedback Submitted:", feedbackData); // ✅ log to console
+      onAdd(feedbackData); // pass to parent if needed
 
-      // Reset form
       setForm({
         name: "",
         city: "",
         outlet: "",
-        rating: "",
+        rating: 0,
         message: "",
         lat: "",
         lng: "",
         type: "",
       });
+      setHover(null);
     } else {
-      alert("⚠️ Please fill all fields correctly.");
+      alert("⚠️ Please fill all required fields.");
     }
   };
 
@@ -76,77 +88,50 @@ const FeedbackForm = ({ onAdd }) => {
     <form onSubmit={handleSubmit} className="feedback-form">
       <h2>📝 Submit Your Food Feedback</h2>
 
-      <input
-        name="name"
-        value={form.name}
-        onChange={handleChange}
-        placeholder="👤 Your Name"
-        required
-      />
-      <input
-        name="city"
-        value={form.city}
-        onChange={handleChange}
-        placeholder="🌆 City"
-        required
-      />
-      <input
-        name="outlet"
-        value={form.outlet}
-        onChange={handleChange}
-        placeholder="🏪 Outlet Name"
-        required
-      />
-      <input
-        name="rating"
-        type="number"
-        min="1"
-        max="5"
-        required
-        value={form.rating}
-        onChange={handleChange}
-        placeholder="⭐ Rating (1-5)"
-      />
+      <input name="name" value={form.name} onChange={handleChange} placeholder="👤 Your Name" required />
+      <input name="city" value={form.city} onChange={handleChange} placeholder="🌆 City" required />
+      <input name="outlet" value={form.outlet} onChange={handleChange} placeholder="🏪 Outlet Name" required />
+
       <textarea
         name="message"
         value={form.message}
         onChange={handleChange}
         placeholder="💬 Your feedback..."
       />
-
-      {/* ✅ Veg / Non-Veg Dropdown */}
-      <select
-        name="type"
-        value={form.type}
-        onChange={handleChange}
-        required
-      >
-        <option value="">🍽️ Select Food Type</option>
-        <option value="veg">🥦 Veg</option>
-        <option value="nonveg">🍗 Non-Veg</option>
-      </select>
-
-      <div className="location-section">
-        <input
-          name="lat"
-          value={form.lat}
-          onChange={handleChange}
-          placeholder="📍 Latitude"
-          required
-        />
-        <input
-          name="lng"
-          value={form.lng}
-          onChange={handleChange}
-          placeholder="📍 Longitude"
-          required
-        />
-        <button type="button" className="use-location" onClick={handleLocation}>
-          📌 Use My Location
-        </button>
+{/* ⭐ Star Rating Section */}
+      <div className="star-rating" onMouseLeave={() => setHover(null)}>
+        <label >Rating:</label>
+        {[...Array(5)].map((_, i) => (
+          <FaStar
+            key={i}
+            size={28}
+            className={`star ${i < (hover || form.rating) ? 'filled' : ''}`}
+            onClick={() => handleStarClick(i)}
+            onMouseEnter={() => setHover(i + 1)}
+          />
+        ))}
+      </div>
+      {/* Toggle for Veg / Non-Veg */}
+      <div className="toggle-type-section">
+        <label className="toggle-label">
+          <span>{form.type === "veg" ? "🥦 Veg" : "🍗 Non-Veg"}</span>
+          <div className="pure-switch">
+            <input
+              type="checkbox"
+              checked={form.type === "nonveg"}
+              onChange={handleToggleType}
+            />
+            <span className="slider"></span>
+          </div>
+        </label>
       </div>
 
-      <button type="submit">✅ Submit Feedback</button>
+      <div className="location-section">
+        <input name="lat" value={form.lat} onChange={handleChange} placeholder="📍 Latitude" required />
+        <input name="lng" value={form.lng} onChange={handleChange} placeholder="📍 Longitude" required />
+        <button type="button" className="use-location" onClick={handleLocation}>📌 Use My Location</button>
+        <button type="submit" className="submit-btn">✅ Submit Feedback</button>
+      </div>
     </form>
   );
 };
