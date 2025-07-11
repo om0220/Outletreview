@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
 import { feedbackData } from './data';
+
+import Header from './components/Header'; // ⬅️ NEW: using Header with ThemeToggle built-in
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import MapView from './components/MapView';
 import SearchBar from './components/SearchBar';
-import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(feedbackData);
@@ -30,26 +31,23 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Theme Toggle */}
-      <ThemeToggle />
-
-      {/* Title */}
-      <h1 className="app-title">🍽️ Food Outlet Feedback App</h1>
+      {/* App Header with Theme Toggle */}
+      <Header />
 
       {/* Search Bar */}
       <SearchBar onSearch={handleSearch} />
 
-      {/* Food Type Toggle */}
-     
+      {/* Optional: Food Type Filter (Veg / Nonveg / All) can be added here */}
 
       {/* Map View */}
       <MapView feedbacks={filteredFeedbacks} />
 
-      {/* Feedback Form */}
-      <FeedbackForm onAdd={addFeedback} />
-
       {/* Feedback List */}
-      <FeedbackList feedbacks={filteredFeedbacks} />
+      <div id="feedbackSection">
+        <FeedbackList feedbacks={filteredFeedbacks} />
+      </div>
+       {/* Feedback Form */}
+      <FeedbackForm onAdd={addFeedback} />
     </div>
   );
 }

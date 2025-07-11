@@ -28,7 +28,7 @@ const MapView = ({ feedbacks }) => {
 
   return (
     <div className="map-wrapper">
-      <h2 className="map-heading">📍 Outlet Locations on Map</h2>
+      <h2 className="map-heading"></h2>
       <div ref={mapRef} id="map" className="map-container" />
     </div>
   );

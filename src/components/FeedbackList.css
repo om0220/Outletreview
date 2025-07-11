@@ -1,184 +1,74 @@
+/* ===============================
+   Feedback List Container
+=============================== */
 .feedback-list {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 24px;
-  font-family: 'Poppins';
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-  margin-left: -15px;
+  background-color: var(--card-bg);
+  padding: 1.5rem 1rem;
+  border-radius: 14px;
+ background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 50%;
+  margin-left: 760px;
+  max-width: 600px;
+  margin-top: -960px;
+  height: 1000px;
+ 
+ 
 }
 
 .feedback-list h2 {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 30px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+  margin-top: -70px;
+}
+
+/* ===============================
+   Filters
+=============================== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
   
 }
 
-/* Card Styling */
-.feedback-card {
-  background-color: #FAF9F6;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 22px 26px;
-  margin-bottom: 24px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  transition: 0.3s ease-in-out;
-}
-
-.feedback-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
-}
-
-/* Rating Display */
-.rating-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  gap: 8px;
-}
-
-.star {
-  font-size: 18px;
-  color: #bbb;
-}
-
-.star.filled {
-  color: #ffc107;
-}
-
-.rating-score {
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--text-primary);
-}
-
-.rating-text {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-/* Product Info */
-.product-info {
-  font-size: 14px;
-  margin-bottom: 6px;
-  color: var(--text-muted);
-}
-
-.dim-text {
-  color: var(--text-light);
-}
-
-/* Veg / Non-Veg Label */
-.food-type-label {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: var(--text-primary);
-}
-
-/* Feedback Message */
-.message p {
-  font-size: 16px;
-  line-height: 1.5;
-  cursor: pointer;
-  color: var(--text-primary);
-}
-
-.read-more,
-.read-less {
-  color: #FDCB6E;
-  font-weight: bold;
-  margin-left: 6px;
-  font-size: 14px;
-}
-
-/* User Info */
-.user-meta {
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-/* Helpful/Not Helpful */
-.feedback-actions {
-  display: flex;
-  gap: 14px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-
-.helpful-btn,
-.not-helpful-btn {
-  padding: 10px 16px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background-color: var(--btn-bg);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.helpful-btn:hover {
-  background-color: #d4ffd4;
-  border-color: #28a745;
-}
-
-.not-helpful-btn:hover {
-  background-color: #ffd8d8;
-  border-color: #dc3545;
-}
-
-.verified {
-  font-size: 13px;
-  margin-top: 10px;
-  color: var(--text-muted);
-}
-
-/* Filters */
-.filters {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
 .filters select {
-  padding: 10px 14px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.95rem;
   border-radius: 8px;
-  border: 1px solid var(--border);
-  font-size: 15px;
-  background: var(--select-bg);
-  color: var(--text-primary);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: 0.3s ease;
+  border: 1px solid #d2c2aa;
+  background-color: #fffdf8;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
 }
 
-.filters select:focus {
-  border-color: #fcbf4e;
-  outline: none;
+.filters button {
+  background-color: #f1eadf;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid #d2c2aa;
+  font-weight: 500;
+  color: #333;
 }
 
-/* Veg / Non-Veg Switch */
 .filter-toggle {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 0.5rem;
   font-weight: 500;
 }
 
 .pure-switch {
   position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 28px;
+  width: 44px;
+  height: 22px;
 }
 
 .pure-switch input {
@@ -189,180 +79,267 @@
 
 .pure-switch .slider {
   position: absolute;
-  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 22px;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: gray;
   transition: 0.3s;
-  border-radius: 28px;
 }
 
-.pure-switch .slider::before {
-  position: absolute;
+.pure-switch .slider:before {
   content: "";
-  height: 22px;
-  width: 22px;
-  left: 3px;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  left: 4px;
   bottom: 3px;
   background-color: white;
-  transition: 0.3s;
   border-radius: 50%;
+  transition: 0.3s;
 }
 
 .pure-switch input:checked + .slider {
-  background-color: #ff9800;
+  background-color: #ef4444;
 }
 
-.pure-switch input:checked + .slider::before {
-  transform: translateX(22px);
+.pure-switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* ===============================
+   Feedback Card
+=============================== */
+.feedback-card {
+  background-color: #fffdfa;
+  border-radius: 12px;
+  border: 1px solid #e0d4c3;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Rating stars */
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.star {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+.star.filled {
+  color: #ffc65c;
+}
+
+.rating-score {
+  margin-left: auto;
+  font-weight: 600;
+  color: #111;
+}
+
+.rating-text {
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+/* Outlet Info */
+.product-info {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.dim-text {
+  font-weight: 600;
+  color: #222;
+}
+
+/* Food Type Label */
+.food-type-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111;
+}
+
+/* Expandable message */
+.message {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.expand-message {
+  cursor: pointer;
+  user-select: none;
+}
+
+.read-more,
+.read-less {
+  color: #0077cc;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+/* User Info */
+.user-meta {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Buttons */
+.feedback-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.feedback-actions button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+
+.helpful-btn {
+  background-color: #e3f4e1;
+  color: #1c6e1c;
+}
+
+.not-helpful-btn {
+  background-color: #fbe8e8;
+  color: #912f2f;
+}
+
+.verified {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 /* Toggle Button */
 .toggle-btn {
-  margin: 30px auto;
-  display: block;
-  padding: 12px 22px;
-  font-size: 15px;
-  font-weight: bold;
-  background: #fcbf4e;
-  color: #fff;
+  background-color: var(--accent);
+  color: white;
   border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s ease;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+  align-self: center;
 }
 
 .toggle-btn:hover {
-  background: #fcbf4e;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  background-color: #e5b157;
 }
 
-/* Theme Variables */
-:root,
-body[data-theme="light"] {
-  --card-bg: #ffffff;
-  --border: #e2e8f0;
-  --text-primary: #1a202c;
-  --text-muted: #718096;
-  --text-light: #a0aec0;
-  --btn-bg: #f9fafb;
-  --select-bg: #ffffff;
-}
-
-body[data-theme="dark"] {
-  --card-bg: #1e1e2f;
-  --border: #444;
-  --text-primary: #f5f5f5;
-  --text-muted: #aaa;
-  --text-light: #888;
-  --btn-bg: #2a2a3d;
-  --select-bg: #2e2e42;
-}
-@media (max-width: 1024px) {
-  .feedback-list {
-    width: 90%;
-    height: 1200px;
-    max-width: 1000px;
-    border-radius: 10px;
-    margin: 50px auto 40px auto;
+/* ===============================
+   Responsive: Tablet
+=============================== */
+@media (max-width: 768px) {
+  .feedback-list{
+    width: auto;
+    margin: auto;
+    margin-left: auto;
+  max-width: auto;
+  margin-top: auto;
+  height: auto;
   }
-/* Filters */
-.filters {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.filters select {
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  font-size: 15px;
-  background: var(--select-bg);
-  color: var(--text-primary);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: 0.3s ease;
-}
+  
+  .feedback-list h2 {
+    font-size: 1rem;
+    margin-top: 0px;
+    margin-left: 30px;
+  }
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
   .feedback-card {
-    padding: 20px;
+    padding: 0.9rem;
+    height: auto;
   }
 
-  .feedback-actions {
-    justify-content: center;
+  .rating-row {
+    flex-wrap: wrap;
+  }
+}
+
+/* ===============================
+   Responsive: Mobile (320px+)
+=============================== */
+/* ================================
+   Responsive: Mobile - Feedback List
+   ================================ */
+@media (max-width: 480px) {
+  .feedback-list {
+    padding: 1rem 0.8rem;
   }
 
-  .toggle-btn {
+  .feedback-card {
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: stretch;
+  }
+
+  .filters select,
+  .filters button {
     width: 100%;
-    font-size: 15px;
   }
 
   .filter-toggle {
-    justify-content: center;
-  }
-}
-
-/* ✅ Tablet / Mobile (max-width: 768px) */
-@media (max-width: 768px) {
-  .feedback-list {
-    width: 92%;
-    padding: 18px;
-    margin-left: 30px;
-  }
-
-  .feedback-card {
-    padding: 18px;
-  }
-
-  .filters select,
-  .toggle-btn {
-    font-size: 14px;
-  }
-
-  .filters {
-    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .feedback-actions {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 440px) {
-  .feedback-list {
-    padding: 10px;
-    width: 75%;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .feedback-card {
+  .feedback-actions button {
     width: 100%;
-    margin-bottom: 12px;
-    font-size: 14px;
   }
 
-  .filters select,
   .toggle-btn {
-    font-size: 6px;
+    width: 100%;
+    margin-top: 1rem;
   }
 
-  .filters {
-    gap: 7px;
+  .rating-row {
+    flex-wrap: wrap;
+    gap: 0.4rem;
   }
-  
-.feedback-list h2 {
-  text-align: center;
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 30px;
- 
-}
-.feedback-list button{
-font-size: 10px;
-}
+
+  .rating-score {
+    margin-left: 0;
+  }
+
+  .food-type-label {
+    font-size: 0.85rem;
+    
+  }
+
+  .user-meta p {
+    font-size: 0.85rem;
+  }
 }

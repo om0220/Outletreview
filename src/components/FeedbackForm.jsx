@@ -129,6 +129,8 @@ const FeedbackForm = ({ onAdd }) => {
       <div className="location-section">
         <input name="lat" value={form.lat} onChange={handleChange} placeholder="📍 Latitude" required />
         <input name="lng" value={form.lng} onChange={handleChange} placeholder="📍 Longitude" required />
+      </div>
+      <div className='buttons'>
         <button type="button" className="use-location" onClick={handleLocation}>📌 Use My Location</button>
         <button type="submit" className="submit-btn">✅ Submit Feedback</button>
       </div>

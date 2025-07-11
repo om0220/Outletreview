@@ -1,281 +1,305 @@
-/* Shared styles for both sections */
-.feedback-form {
-  flex: 1;
-  width: 50%;
-  border-radius: 5px;
-  border: 2px solid var(--map-border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
-  background-color: #ffffff;
-  box-sizing: border-box;
-  padding: 20px;
-  text-align: center;
-margin-left: 50%;
-margin-right: 600px;
-margin-top: -790px;
-border-top: transparent;
-
-
-}
-
-.feedback-form h2 {
-  margin-bottom: 40px;
-  margin-top: 10px;
-  font-size: 28px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.feedback-form input,
-.feedback-form textarea {
-  padding: 14px 16px;
-  font-size: 16px;
-  border-radius: 12px;
-  border: 2px solid #ffe3b3;
-  background-color: #ffffff;
-  color: #222;
-  transition: 0.3s ease;
-  width: 50%;
-  max-width: 500px;
-  margin: 12px auto;
-  display: block;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset;
-}
-
-.feedback-form input:focus,
-.feedback-form textarea:focus {
-  border-color: #ff9800;
-  box-shadow: 0 0 0 4px rgba(255, 166, 0, 0.3);
-  outline: none;
-}
-
-.feedback-form textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.feedback-form button {
-  margin: 30px auto 0;
-  padding: 14px 28px;
-  background: #ffc65c;
-  border: none;
-  color: #fff;
-  font-size: 17px;
-  font-weight: bold;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
- margin-left: 10px;
-
-width: 45%;
-}
-
-.feedback-form button:hover {
-  background: linear-gradient(90deg, #ff6f00, #fb8c00);
-  transform: translateY(-2px);
-}
-
-.location-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0px;
-  margin-top: 10px;
-}
-
-.star-rating {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin: 14px 0;
-}
-
-.star {
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.star.filled {
-  color: #ffc107;
-}
-
-.toggle-type-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.toggle-label {
-  font-size: 16px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.pure-switch {
-  position: relative;
-  width: 50px;
-  height: 28px;
-}
-
-.pure-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.pure-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: gray;
-  transition: 0.3s;
-  border-radius: 28px;
-}
-
-.pure-switch .slider::before {
-  content: "";
-  position: absolute;
-  height: 22px;
-  width: 22px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.3s;
-}
-
-.pure-switch input:checked + .slider {
-  background-color: #ff9800;
-}
-
-.pure-switch input:checked + .slider::before {
-  transform: translateX(22px);
-}
-
-
-
-
-
-
-
-
-/* 🌙 Dark Theme */
-body.dark-theme .feedback-form {
-  background: linear-gradient(135deg, #1f1f1f, #2b2b2b);
-  border: 2px solid #444;
-  color: #f1f1f1;
-}
-
-body.dark-theme .feedback-form h2 {
-  -webkit-text-fill-color: white;
-}
-
-body.dark-theme .feedback-form input,
-body.dark-theme .feedback-form textarea {
-  background-color: #333;
-  color: #f1f1f1;
-  border: 2px solid #555;
-  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05) inset;
-}
-
-body.dark-theme .feedback-form input::placeholder,
-body.dark-theme .feedback-form textarea::placeholder {
-  color: #aaa;
-}
-
-body.dark-theme .feedback-form input:focus,
-body.dark-theme .feedback-form textarea:focus {
-  border-color: #ffa000;
-  box-shadow: 0 0 0 4px rgba(255, 171, 64, 0.2);
-}
-
-body.dark-theme .feedback-form button {
-  background: #fca833;
-  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
-}
-
-body.dark-theme .feedback-form button:hover {
-  background: #e88b09;
-}
-
-/* body.dark-theme .use-location {
-  background: #43a047;
-}
-
-body.dark-theme .use-location:hover {
-  background: #2e7d32;
-} */
-
-
-
-
-
-
-
-/* Media Queries */
-@media (max-width: 1024px) {
+  /* ===============================
+    Feedback Form Container
+  =============================== */
   .feedback-form {
-    width: 90%;
-    height: 850px;
-    max-width: 1000px;
+    background-color: var(--card-bg);
+    
+    border-radius: 14px;
+    padding: 1.5rem 1.5rem;
+   background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+   margin-top: -800px;
+   width: 50%;
+   justify-content: center;
+   
+  }
+
+  /* ===============================
+    Headings
+  =============================== */
+  .feedback-form h2 {
+    font-size: 1.3rem;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  /* ===============================
+    Input & Textarea
+  =============================== */
+  .feedback-form input,
+  .feedback-form textarea {
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    border: 1px solid #ddd1bc;
     border-radius: 10px;
-    margin: 50px auto 40px auto;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fffdf8;
+    color: var(--text);
+    width: 80%;
+    box-sizing: border-box;
+    resize: none;
+    outline: none;
+    transition: border 0.3s ease;
+    margin-left: 50px;
+   
+  
+  }
+
+  .feedback-form input:focus,
+  .feedback-form textarea:focus {
+    border-color: var(--accent);
+  }
+
+  /* ===============================
+    Star Rating Section
+  =============================== */
+  .star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-left: 50px;
+  }
+
+  .star-rating label {
+    margin-right: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .star {
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.2s ease;
+  }
+
+  .star.filled {
+    color: #ffc65c;
+  }
+
+  /* ===============================
+    Veg / Non-Veg Toggle
+  =============================== */
+  .toggle-type-section {
+    display: flex;
+    align-items: center;
+ margin-top: -50px;
+   
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    width: 50%;
+    margin-left: 400px;
+  }
+
+  .toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .pure-switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+  }
+
+  .pure-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: 0.3s;
+  }
+
+  .slider:before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  .pure-switch input:checked + .slider {
+    background-color: #ef4444;
+  }
+
+  .pure-switch input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+
+  /* ===============================
+    Location & Submit Buttons
+  =============================== */
+  .location-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 150px;
   }
 
   
-.feedback-form button {
-  
-width: 45%;
-margin-left: 10px;
-}
+  .submit-btn {
+    flex: 1 1 48%;
+    padding: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+   
+    
+  }
+
+  .use-location {
+    background-color: #e8e6e1;
+    color: #333;
+  }
+
+  .use-location:hover {
+    background-color: #ddd;
+  }
+
+  .submit-btn {
+    background-color: var(--accent);
+    color: white;
+    
+  }
+
+  .submit-btn:hover {
+    background-color: #e5b157;
+  }
+
+  /* ===============================
+    Responsive: Tablet
+  =============================== */
+  @media (max-width: 768px) {
+    .feedback-form {
+      padding: 1rem;
+      margin-top: 0px;
+      width: auto;
+    }
+.feedback-form input,
+  .feedback-form textarea {
+    width: auto;
+    margin: auto;
+  }
+    .star-rating {
+      flex-wrap: wrap;
+      margin-left: 40px;
+    }
+
+    .location-section {
+      flex-direction: column;
+      align-items: stretch;
+      width: auto;
+      margin: auto;
+    }
+.toggle-type-section{
+  margin: auto;
+  width: 50%;
+  margin-top:-50px;
+  margin-left: 400px;
 }
 
-@media (max-width: 768px) {
+.toggle-label{
+  width: 40%;
+}
+    .use-location{
+width: 50%;
+margin-left: 200px;
+    }
+    
+   
+  }
+
+  .submit-btn {
+    background-color: var(--accent);
+    color: white;
+    width: auto;
+    margin-left: 300px;
+  }
+  /* ===============================
+    Responsive: Mobile (320px+)
+  =============================== */
+  /* ================================
+   Responsive: Mobile - Feedback Form
+   ================================ */
+@media (max-width: 480px) {
   .feedback-form {
-    width: 95%;
-    margin: 20px auto;
+    padding: 0.9rem;
+    border-radius: 12px;
   }
 
   .feedback-form h2 {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .star-rating label {
+    font-size: 0.95rem;
+  }
+
+  .star {
     font-size: 22px;
   }
 
-  .feedback-form input,
-  .feedback-form textarea,
-  .feedback-form button {
-    font-size: 14px;
-   
+  .toggle-label {
+    font-size: 0.95rem;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+    width: 100%;
   }
-}
-
-@media (max-width: 480px) {
-  .feedback-form {
-    max-width: 85%;
-    padding: 16px;
-    height: auto;
-  }
-
-  .feedback-form h2 {
-    font-size: 15px;
-  }
-
-  .feedback-form input,
-  .feedback-form textarea {
-    font-size: 13px;
-  }
-.feedback-form button{
-  width: 40%;
-  font-size: 9px;
+  .toggle-type-section{
+  margin-left: 100px;
+  width: 50%;
+  margin-top:-10px;
   
 }
-  .use-location {
+
+  .location-section {
+    flex-direction: column;
+    gap: 0.6rem;
+    width: auto;
+  }
+
+  .location-section input,
+  .location-section button {
     width: 100%;
-    font-size: 13px;
+  }
+  .use-location{
+    width: 100%;
+    margin-left: 0px;
+  }
+  .submit-btn{
+    margin-left: 50px;
   }
 }
