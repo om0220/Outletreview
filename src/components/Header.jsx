@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { LuMoonStar, LuSun } from "react-icons/lu";
-import './Header.css';
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(() =>
@@ -8,23 +7,29 @@ const Header = () => {
   );
 
   useEffect(() => {
-    document.body.classList.toggle("dark-theme", darkMode);
+    const root = window.document.documentElement;
+    darkMode
+      ? root.classList.add("dark")
+      : root.classList.remove("dark");
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-  const toggleTheme = () => {
-    setDarkMode((prev) => !prev);
-  };
+  const toggleTheme = () => setDarkMode((prev) => !prev);
 
   return (
-    <header className="app-header">
-      <h1 className="app-title">🍽️ Food Outlet Feedback App</h1>
-      <div className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
-        {darkMode ? (
-          <LuSun className="theme-icon" />
-        ) : (
-          <LuMoonStar className="theme-icon" />
-        )}
+    <header className="bg-[#fff8dc] dark:bg-black py-4 px-4 transition-colors duration-500">
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between relative">
+        <h1 className="text-lg sm:text-xl lg:text-4xl font-bold text-gray-800 dark:text-white tracking-tight w-full text-center">
+          🍽️ Food Outlet Feedback App
+        </h1>
+
+        <button
+          onClick={toggleTheme}
+          title="Toggle theme"
+          className="absolute right-0 text-2xl text-gray-700 dark:text-gray-200 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors duration-300"
+        >
+          {darkMode ? <LuSun /> : <LuMoonStar />}
+        </button>
       </div>
     </header>
   );

@@ -29,92 +29,90 @@ export let feedbackData = [
     city: "Mumbai",
     outlet: "Subway Bandra",
     rating: 3,
-    message:
-      "Good for a quick healthy bite. Could improve seating space.",
+    message: "Good for a quick healthy bite. Could improve seating space.",
     lat: 19.076,
     lng: 72.8777,
     type: "veg"
   },
   {
     id: 4,
-    name: "Pooja",
-    city: "Chennai",
-    outlet: "Anjappar Chettinad",
-    rating: 5,
+    name: "Simran",
+    city: "Pune",
+    outlet: "KFC MG Road",
+    rating: 4,
     message:
-      "Authentic South Indian non-veg. The biryani was flavorful and well-cooked. Great service too.",
-    lat: 13.0827,
-    lng: 80.2707,
+      "Chicken bucket was crispy and spicy! Service was quick. Will visit again.",
+    lat: 18.5204,
+    lng: 73.8567,
     type: "nonveg"
   },
   {
     id: 5,
-    name: "Sanjay",
-    city: "Pune",
-    outlet: "Vaishali Restaurant",
-    rating: 4,
+    name: "Rahul",
+    city: "Chennai",
+    outlet: "Domino's Adyar",
+    rating: 5,
     message:
-      "Classic veg food spot. Great place for dosas and idli. Gets crowded in evenings.",
-    lat: 18.5204,
-    lng: 73.8567,
+      "Hot and fresh pizzas. Loved the cheesy crust. Friendly delivery guy too!",
+    lat: 13.0827,
+    lng: 80.2707,
     type: "veg"
   },
   {
     id: 6,
-    name: "Divya",
+    name: "Priya",
     city: "Hyderabad",
-    outlet: "Paradise Biryani",
+    outlet: "Barbeque Nation Banjara Hills",
     rating: 5,
     message:
-      "Iconic biryani! Perfect balance of spices and portion size. Must-try for meat lovers.",
+      "Great buffet spread and live grill experience! Perfect for family dinners.",
     lat: 17.385,
     lng: 78.4867,
     type: "nonveg"
   },
   {
     id: 7,
-    name: "Arjun",
-    city: "Ahmedabad",
-    outlet: "Havmor Restaurant",
+    name: "Ankit",
+    city: "Bangalore",
+    outlet: "McDonald's Indiranagar",
     rating: 3,
+    message: "Standard taste, but place was too crowded during lunch.",
+    lat: 12.9716,
+    lng: 77.5946,
+    type: "veg"
+  },
+  {
+    id: 8,
+    name: "Deepa",
+    city: "Ahmedabad",
+    outlet: "Gopi Dining Hall",
+    rating: 4,
     message:
-      "Decent food and good ice cream options. Service was a bit slow.",
+      "Authentic Gujarati thali with unlimited servings. Value for money!",
     lat: 23.0225,
     lng: 72.5714,
     type: "veg"
   },
   {
-    id: 8,
-    name: "Meera",
+    id: 9,
+    name: "Vikram",
     city: "Kolkata",
-    outlet: "6 Ballygunge Place",
-    rating: 4,
+    outlet: "Biryani House Park Street",
+    rating: 5,
     message:
-      "Authentic Bengali cuisine. Loved the fish curry and ambience. A little pricey.",
+      "Best mutton biryani in town! Aromatic rice and tender meat.",
     lat: 22.5726,
     lng: 88.3639,
     type: "nonveg"
   },
   {
-    id: 9,
-    name: "Nikhil",
-    city: "Bangalore",
-    outlet: "Truffles Indiranagar",
-    rating: 5,
-    message:
-      "Top place for burgers and shakes! Fast service and great crowd. Highly recommended.",
-    lat: 12.9716,
-    lng: 77.5946,
-    type: "nonveg"
-  },
-  {
     id: 10,
-    name: "Anjali",
+    name: "Meena",
     city: "Jaipur",
     outlet: "Rawat Kachori",
     rating: 4,
     message:
-      "Delicious kachoris and sweets. Authentic Rajasthani flavors. Busy during weekends.",
+      "Delicious pyaaz kachori and sweets. Great stop for snacks during sightseeing.",
     lat: 26.9124,
     lng: 75.7873,
     type: "veg"

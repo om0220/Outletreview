@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import '../components/MapView.css';
 
 const MapView = ({ feedbacks }) => {
   const mapRef = useRef(null);
@@ -18,7 +17,7 @@ const MapView = ({ feedbacks }) => {
     feedbacks.forEach((f) => {
       if (f.lat && f.lng) {
         new window.google.maps.Marker({
-          position: { lat: f.lat, lng: f.lng },
+          position: { lat: parseFloat(f.lat), lng: parseFloat(f.lng) },
           map,
           title: `${f.outlet} (${f.city})`,
         });
@@ -27,9 +26,15 @@ const MapView = ({ feedbacks }) => {
   }, [feedbacks]);
 
   return (
-    <div className="map-wrapper">
-      <h2 className="map-heading"></h2>
-      <div ref={mapRef} id="map" className="map-container" />
+    <div className="w-full lg:w-1/2 p-4 overflow-y-auto max-h-[500px]">
+      <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-black">
+        🗺️ Map View
+      </h2>
+      <div
+        ref={mapRef}
+        id="map"
+        className="h-72 lg:h-60 w-full rounded-lg shadow-md border border-gray-200 dark:border-gray-700"
+      />
     </div>
   );
 };
