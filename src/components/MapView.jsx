@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { FaMapSigns } from "react-icons/fa";
 
 const MapView = ({ feedbacks }) => {
   const mapRef = useRef(null);
@@ -26,14 +27,15 @@ const MapView = ({ feedbacks }) => {
   }, [feedbacks]);
 
   return (
-    <div className="w-full lg:w-1/2 p-4 overflow-y-auto max-h-[500px]">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-black">
-        🗺️ Map View
+    <div className="w-full px-0 lg:px-0">
+      <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800 dark:text-white flex items-center justify-center gap-2">
+        <FaMapSigns className="text-orange-600 dark:text-yellow-400" />
+        Map View
       </h2>
       <div
         ref={mapRef}
         id="map"
-        className="h-72 lg:h-60 w-full rounded-lg shadow-md border border-gray-200 dark:border-gray-700"
+        className="h-72 md:h-80 w-full rounded-none shadow-md border-t border-b border-gray-200 dark:border-gray-700"
       />
     </div>
   );

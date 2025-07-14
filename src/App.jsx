@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 
 import { feedbackData } from './data';
 
-import Header from './components/Header'; // ⬅️ NEW: using Header with ThemeToggle built-in
+import Header from './components/Header';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import MapView from './components/MapView';
 import SearchBar from './components/SearchBar';
+import Footer from './components/Footer';
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(feedbackData);
   const [cityFilter, setCityFilter] = useState('');
-  const [foodType, setFoodType] = useState('all'); // 'veg' | 'nonveg' | 'all'
+  const [foodType, setFoodType] = useState('all');
 
   const addFeedback = (feedback) => {
     setFeedbacks((prev) => [...prev, { ...feedback, id: Date.now() }]);
@@ -30,24 +31,33 @@ function App() {
   );
 
   return (
-    <div className="app-container">
-      {/* App Header with Theme Toggle */}
+    <div className="min-h-screen bg-gradient-to-b from-[#fefdf9] via-[#f7f4ea] to-[#f0ebe2] dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 transition-colors duration-300">
+      {/* Header */}
       <Header />
 
-      {/* Search Bar */}
+      {/* Search */}
       <SearchBar onSearch={handleSearch} />
 
-      {/* Optional: Food Type Filter (Veg / Nonveg / All) can be added here */}
-
       {/* Map View */}
-      <MapView feedbacks={filteredFeedbacks} />
+      <div className="w-full p-4" style={{ minHeight: '260px' }}>
+        <MapView feedbacks={filteredFeedbacks} />
+      </div>
 
       {/* Feedback List */}
-      <div id="feedbackSection">
+      <div className="relative z-10" id="feedbackSection">
         <FeedbackList feedbacks={filteredFeedbacks} />
       </div>
-       {/* Feedback Form */}
-      <FeedbackForm onAdd={addFeedback} />
+
+      {/* Spacing for mobile */}
+      <div className="h-12 lg:hidden" />
+
+      {/* Feedback Form */}
+      <div className="relative z-10">
+        <FeedbackForm onAdd={addFeedback} />
+      </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

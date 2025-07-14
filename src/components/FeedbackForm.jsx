@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { SlLocationPin } from "react-icons/sl";
+import { MdNoteAdd } from "react-icons/md";
+import { LuVegan } from 'react-icons/lu';
+import { GiMeat } from 'react-icons/gi';
 
 const FeedbackForm = ({ onAdd }) => {
   const [form, setForm] = useState({
@@ -54,7 +57,7 @@ const FeedbackForm = ({ onAdd }) => {
     const { name, city, outlet, rating, message, lat, lng, type } = form;
 
     if (name && city && outlet && lat && lng && type && rating > 0) {
-      const feedbackData = {
+      onAdd({
         name,
         city,
         outlet,
@@ -63,9 +66,7 @@ const FeedbackForm = ({ onAdd }) => {
         lat: parseFloat(lat),
         lng: parseFloat(lng),
         type,
-      };
-
-      onAdd(feedbackData);
+      });
 
       setForm({
         name: "",
@@ -84,13 +85,14 @@ const FeedbackForm = ({ onAdd }) => {
   };
 
   return (
-    <div className="w-full lg:w-1/2 px-4 mt-10 lg:-mt-[200px]" id="feedbackFormSection">
+    <div className="w-full flex justify-center items-center px-4 py-12" id="feedbackFormSection">
       <form
         onSubmit={handleSubmit}
-        className="max-w-xl mx-auto p-6 bg-white dark:bg-gray-900 shadow-md rounded-md space-y-5"
+        className="w-full max-w-2xl p-6 bg-[#fff1c4] dark:bg-gray-900 shadow-xl rounded-xl space-y-5"
       >
-        <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-white">
-          📝 Submit Your Food Feedback
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center text-gray-800 dark:text-white flex items-center justify-center gap-2">
+          <MdNoteAdd className="text-orange-600 dark:text-yellow-400" />
+          Submit Your Food Feedback
         </h2>
 
         <input
@@ -117,7 +119,6 @@ const FeedbackForm = ({ onAdd }) => {
           required
           className="w-full px-4 py-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
         />
-
         <textarea
           name="message"
           value={form.message}
@@ -148,8 +149,16 @@ const FeedbackForm = ({ onAdd }) => {
 
         {/* Veg/Non-Veg Toggle */}
         <div className="flex items-center justify-between">
-          <span className="text-xl">
-            {form.type === "veg" ? "🥦 Veg" : "🍗 Non-Veg"}
+          <span className="text-xl flex items-center gap-1">
+            {form.type === "veg" ? (
+              <>
+                <LuVegan className="text-green-600" /> Veg
+              </>
+            ) : (
+              <>
+                <GiMeat className="text-red-600" /> Non-Veg
+              </>
+            )}
           </span>
           <label className="relative inline-flex items-center cursor-pointer">
             <input
@@ -158,7 +167,7 @@ const FeedbackForm = ({ onAdd }) => {
               onChange={handleToggleType}
               className="sr-only peer"
             />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-checked:bg-red-500 rounded-full peer dark:bg-gray-700"></div>
+            <div className="w-11 h-6 bg-gray-200 peer-checked:bg-red-500 rounded-full peer dark:bg-gray-700"></div>
             <div className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5"></div>
           </label>
         </div>

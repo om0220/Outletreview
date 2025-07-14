@@ -17,12 +17,14 @@ const Header = () => {
   const toggleTheme = () => setDarkMode((prev) => !prev);
 
   return (
-    <header className="bg-[#fff8dc] dark:bg-black py-4 px-4 transition-colors duration-500">
+    <header className="bg-[#ffe7c2] dark:bg-black py-4 px-4 transition-colors duration-500">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between relative">
-        <h1 className="text-lg sm:text-xl lg:text-4xl font-bold text-gray-800 dark:text-white tracking-tight w-full text-center">
+        {/* Responsive Heading */}
+        <h1 className="text-base sm:text-xl lg:text-4xl font-bold text-gray-800 dark:text-white tracking-tight w-full text-center">
           🍽️ Food Outlet Feedback App
         </h1>
 
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
           title="Toggle theme"
