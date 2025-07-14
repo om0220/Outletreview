@@ -1,5 +1,5 @@
 export default {
-  darkMode: 'class', // <-- Important for manual dark mode toggling
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,5 +7,7 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'), // ✅ Add this line
+  ],
 };

@@ -31,7 +31,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fefdf9] via-[#f7f4ea] to-[#f0ebe2] dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
       {/* Header */}
       <Header />
 

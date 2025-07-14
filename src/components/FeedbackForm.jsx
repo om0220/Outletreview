@@ -88,7 +88,7 @@ const FeedbackForm = ({ onAdd }) => {
     <div className="w-full flex justify-center items-center px-4 py-12" id="feedbackFormSection">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-2xl p-6 bg-[#fff1c4] dark:bg-gray-900 shadow-xl rounded-xl space-y-5"
+        className="w-full max-w-2xl p-6 bg-gray-100 border border-black dark:bg-gray-900 shadow-xl rounded-xl space-y-5"
       >
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center text-gray-800 dark:text-white flex items-center justify-center gap-2">
           <MdNoteAdd className="text-orange-600 dark:text-yellow-400" />
@@ -101,7 +101,7 @@ const FeedbackForm = ({ onAdd }) => {
           onChange={handleChange}
           placeholder="👤 Your Name"
           required
-          className="w-full px-4 py-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+          className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
         />
         <input
           name="city"
@@ -109,7 +109,7 @@ const FeedbackForm = ({ onAdd }) => {
           onChange={handleChange}
           placeholder="🌆 City"
           required
-          className="w-full px-4 py-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+          className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
         />
         <input
           name="outlet"
@@ -117,14 +117,14 @@ const FeedbackForm = ({ onAdd }) => {
           onChange={handleChange}
           placeholder="🏪 Outlet Name"
           required
-          className="w-full px-4 py-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+          className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
         />
         <textarea
           name="message"
           value={form.message}
           onChange={handleChange}
           placeholder="💬 Your feedback..."
-          className="w-full px-4 py-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+          className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
         />
 
         {/* Star Rating */}
@@ -180,7 +180,7 @@ const FeedbackForm = ({ onAdd }) => {
             onChange={handleChange}
             placeholder="📍 Latitude"
             required
-            className="w-full px-4 py-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
           />
           <input
             name="lng"
@@ -188,7 +188,7 @@ const FeedbackForm = ({ onAdd }) => {
             onChange={handleChange}
             placeholder="📍 Longitude"
             required
-            className="w-full px-4 py-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+            className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
           />
         </div>
 

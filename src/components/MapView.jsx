@@ -27,16 +27,18 @@ const MapView = ({ feedbacks }) => {
   }, [feedbacks]);
 
   return (
-    <div className="w-full px-0 lg:px-0">
-      <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800 dark:text-white flex items-center justify-center gap-2">
-        <FaMapSigns className="text-orange-600 dark:text-yellow-400" />
-        Map View
-      </h2>
-      <div
-        ref={mapRef}
-        id="map"
-        className="h-72 md:h-80 w-full rounded-none shadow-md border-t border-b border-gray-200 dark:border-gray-700"
-      />
+    <div className="w-full px-4 flex justify-center">
+      <div className="w-full lg:w-3/4 lg:mx-auto">
+        <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-center text-gray-800 dark:text-white flex items-center justify-center gap-2">
+          <FaMapSigns className="text-orange-600 dark:text-yellow-400" />
+          Map View
+        </h2>
+        <div
+          ref={mapRef}
+          id="map"
+          className="h-72 md:h-80 w-full rounded-md shadow-md border-t border-b border-gray-200 dark:border-gray-700"
+        />
+      </div>
     </div>
   );
 };
